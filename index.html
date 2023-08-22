@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>My Library</title>
         <link rel="stylesheet" href="style.css">
         <script src="javascript.js" defer></script>
     </head>
@@ -12,19 +12,18 @@
             <h1>My Library</h1>
         </header>
         <div class="sidebar">
-            <h2>Add a Book to Library:</h2>
-            <form name="bookForm" method="post" >
-                <div class="book-form-container">
-                    <label for="bookTitle">Title:</label>
-                    <input type="text" id="bookTitle" name="bookTitle">
-                    <label for="bookAuthor">Author:</label>
-                    <input type="text" id="bookAuthor" name="bookAuthor">
-                    <label for="bookPages">Number of Pages:</label>
-                    <input type="number" id="bookPages" name="bookPages">
-                    <label for="bookRead">Check if read:</label>
-                    <input type="checkbox" name="bookRead" id="bookRead">
-                    <button type="button">Submit Book</button>
-                </div>    
+            <h2>Add a Book to the Library:</h2>
+            <p>(* indicates required fields)</p>
+            <form name="bookForm" id="bookForm" method="post" >
+                <label for="bookTitle">*Title:</label>
+                <input type="text" id="bookTitle" name="bookTitle" required>
+                <label for="bookAuthor">*Author:</label>
+                <input type="text" id="bookAuthor" name="bookAuthor" required>
+                <label for="bookPages">*Number of Pages:</label>
+                <input type="number" id="bookPages" name="bookPages" required>
+                <label for="bookRead">Check if read:</label>
+                <input type="checkbox" name="bookRead" id="bookRead">
+                <button type="button" id="bookButton">Submit Book</button>    
             </form>
         </div>
         <div class="main">
