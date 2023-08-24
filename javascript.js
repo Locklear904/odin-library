@@ -20,10 +20,11 @@ function Book(title, author, pages, read){
 function addBookToLibrary() {
     let newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookRead.checked);
     myLibrary.push(newBook);
+    displayBook(newBook);
     bookForm.reset();
 }
 
-function displayBooks(book) {
+function displayBook(book) {
     let bookCard = document.createElement("div");
     bookCard.classList.add('bookCard');
     
@@ -61,7 +62,10 @@ function displayBooks(book) {
     main.appendChild(bookCard);
 }
 
-bookButton.addEventListener('click', addBookToLibrary);
+bookForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    addBookToLibrary();
+});
 
 const theHobbit = new Book("The Hobbit", "JRR Tolkien", "295", true);
 const testBook = new Book("Test Book", "Test Author", "199", false);
@@ -69,5 +73,5 @@ const testBook2 = new Book("Test Book 2", "Test Author 2", "2", true);
 myLibrary.push(theHobbit, testBook, testBook2);
 
 myLibrary.forEach((book) => {
-    displayBooks(book);
+    displayBook(book);
 });

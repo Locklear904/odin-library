@@ -14,7 +14,7 @@
         <div class="sidebar">
             <h2>Add a Book:</h2>
             <p>(* indicates required fields)</p>
-            <form name="bookForm" id="bookForm" method="post" >
+            <form name="bookForm" id="bookForm" method="post" action="">
                 <label for="bookTitle">*Title:</label>
                 <input type="text" id="bookTitle" name="bookTitle" required>
                 <label for="bookAuthor">*Author:</label>
@@ -23,7 +23,7 @@
                 <input type="number" id="bookPages" name="bookPages" required>
                 <label for="bookRead">Check if read:</label>
                 <input type="checkbox" name="bookRead" id="bookRead">
-                <button type="button" id="bookButton">Submit Book</button>    
+                <button type="submit" id="bookButton">Submit Book</button>    
             </form>
         </div>
         <main id="main">
