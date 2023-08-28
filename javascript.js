@@ -12,9 +12,11 @@ function Book(title, author, pages, read){
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.info = function() {
-        return title + " by " + author + ", " + pages + " pages, " + read;
-    }
+}
+
+function removeBook(){
+    this.parentElement.parentElement.remove();
+    myLibrary[this.parentElement.parentElement.getAttribute("data-index")] = null;
 }
 
 function addBookToLibrary() {
@@ -27,11 +29,23 @@ function addBookToLibrary() {
 function displayBook(book) {
     let bookCard = document.createElement("div");
     bookCard.classList.add('bookCard');
+    bookCard.setAttribute("data-index", myLibrary.indexOf(book));
     
+    let cardTitleDiv = document.createElement("div");
+    cardTitleDiv.classList.add('cardTitleDiv');
+    bookCard.appendChild(cardTitleDiv);
+
     let cardTitle = document.createElement("h3");
     cardTitle.classList.add('cardTitle');
-    bookCard.appendChild(cardTitle);
+    cardTitleDiv.appendChild(cardTitle);
     cardTitle.textContent = `Title: ${book.title}`;
+
+    let cardRemoveBtn = document.createElement("button");
+    cardRemoveBtn.classList.add('cardRemoveBtn');
+    cardRemoveBtn.type = "button";
+    cardRemoveBtn.textContent = "X"
+    cardRemoveBtn.addEventListener('click', removeBook);
+    cardTitleDiv.appendChild(cardRemoveBtn);
 
     let cardAuthor = document.createElement("p");
     cardAuthor.classList.add('cardAuthor');
@@ -68,9 +82,11 @@ bookForm.addEventListener('submit', function(event) {
 });
 
 const theHobbit = new Book("The Hobbit", "JRR Tolkien", "295", true);
+myLibrary.push(theHobbit);
 const testBook = new Book("Test Book", "Test Author", "199", false);
+myLibrary.push(testBook);
 const testBook2 = new Book("Test Book 2", "Test Author 2", "2", true);
-myLibrary.push(theHobbit, testBook, testBook2);
+myLibrary.push(testBook2);
 
 myLibrary.forEach((book) => {
     displayBook(book);
