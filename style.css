@@ -8,6 +8,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'Roboto', sans-serif;
 }
 
 header {
@@ -72,11 +73,8 @@ main {
     border-right: 1px solid rgba(255, 255, 255, 50%);
 }
 
-.cardTitleDiv {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
+.cardRemoveBtn {
+    align-self: end;
 }
 
 .cardReadDiv {

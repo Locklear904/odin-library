@@ -40,22 +40,18 @@ function displayBook(book) {
     let bookCard = document.createElement("div");
     bookCard.classList.add('bookCard');
     bookCard.setAttribute("data-index", myLibrary.indexOf(book));
-    
-    let cardTitleDiv = document.createElement("div");
-    cardTitleDiv.classList.add('cardTitleDiv');
-    bookCard.appendChild(cardTitleDiv);
-
-    let cardTitle = document.createElement("h3");
-    cardTitle.classList.add('cardTitle');
-    cardTitleDiv.appendChild(cardTitle);
-    cardTitle.textContent = `Title: ${book.title}`;
 
     let cardRemoveBtn = document.createElement("button");
     cardRemoveBtn.classList.add('cardRemoveBtn');
     cardRemoveBtn.type = "button";
     cardRemoveBtn.textContent = "X"
     cardRemoveBtn.addEventListener('click', removeBook);
-    cardTitleDiv.appendChild(cardRemoveBtn);
+    bookCard.appendChild(cardRemoveBtn);
+
+    let cardTitle = document.createElement("h3");
+    cardTitle.classList.add('cardTitle');
+    bookCard.appendChild(cardTitle);
+    cardTitle.textContent = `Title: ${book.title}`;
 
     let cardAuthor = document.createElement("p");
     cardAuthor.classList.add('cardAuthor');
