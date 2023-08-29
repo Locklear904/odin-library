@@ -80,8 +80,10 @@ function displayBook(book) {
     cardRead.classList.add('cardRead');
     cardRead.type = "checkbox";
     cardRead.checked = book.read;
+    cardRead.addEventListener('change', function() {
+        myLibrary[this.parentElement.parentElement.getAttribute("data-index")].read = cardRead.checked;
+    })
     cardReadDiv.appendChild(cardRead);
-    cardRead.textContent = "Check if read: "
 
     main.appendChild(bookCard);
 }
