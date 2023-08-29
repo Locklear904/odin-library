@@ -68,7 +68,8 @@ main {
     align-items: center;
     color: white;
     background-color: rgba(0, 0, 0, 50%);
-    border-bottom: 1px dashed white;
+    border-bottom: 1px solid rgba(255, 255, 255, 50%);
+    border-right: 1px solid rgba(255, 255, 255, 50%);
 }
 
 .cardTitleDiv {

@@ -14,9 +14,19 @@ function Book(title, author, pages, read){
     this.read = read;
 }
 
+function clearMain() {
+    while (main.firstChild) {
+        main.removeChild(main.firstChild);
+    }
+}
+
 function removeBook(){
-    this.parentElement.parentElement.remove();
-    myLibrary[this.parentElement.parentElement.getAttribute("data-index")] = null;
+    let dataIndex = myLibrary[this.parentElement.parentElement.getAttribute("data-index")];
+    myLibrary.splice(dataIndex, 1);
+    clearMain();
+    myLibrary.forEach((book) => {
+        displayBook(book);
+    });
 }
 
 function addBookToLibrary() {
